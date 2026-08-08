@@ -2,31 +2,95 @@
 <html>
 <head>
     <title>Emergency Triage Priority Prediction</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        .container {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            font-size: 22px;
+            color: #b91c1c;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        label {
+            display: block;
+            margin-top: 12px;
+            margin-bottom: 4px;
+            font-weight: 600;
+            font-size: 14px;
+            color: #333;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        button {
+            margin-top: 25px;
+            width: 100%;
+            padding: 12px;
+            background-color: #b91c1c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #991717;
+        }
+        h2 {
+            margin-top: 25px;
+            text-align: center;
+            color: #15803d;
+            background: #dcfce7;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-    <h1>AI-Based Emergency Patient Priority Prediction</h1>
-    <form action="/predict" method="post">
-        <input type="hidden" name="Unnamed: 0" value="0">
-        <label>age:</label><input type="number" name="age" required><br>
-        <label>plasma glucose:</label><input type="number" name="plasma glucose" required><br>
-        <label>blood pressure:</label><input type="number" name="blood pressure" required><br>
-        <label>bmi:</label><input type="number" step="0.1" name="bmi" required><br>
-        <label>Skin Thickness:</label><input type="number" name="skin_thickness" required><br>
-        <label>Insulin:</label><input type="number" name="insulin" required><br>
-        <label>Diabetes Pedigree:</label><input type="number" step="0.01" name="diabetes_pedigree" required><br>
-        <label>Cholesterol:</label><input type="number" name="cholesterol" required><br>
-        <label>Max Heart Rate:</label><input type="number" name="max heart rate" required><br>
-        <label>Hypertension (0/1):</label><input type="number" name="hypertension" required><br>
-        <label>Heart Disease (0/1):</label><input type="number" name="heart_disease" required><br>
-        <label>Exercise Angina (0/1):</label><input type="number" name="exercise angina" required><br>
-        <label>Smoking Status (0/1):</label><input type="number" name="smoking_status" required><br>
-        <label>Gender (0/1):</label><input type="number" name="gender" required><br>
-        <label>Chest Pain Type:</label><input type="number" name="chest pain type" required><br>
-        <label>Residence Type (0/1):</label><input type="number" name="Residence_type" required><br>
-        <button type="submit">Predict</button>
-    </form>
-    {% if prediction_text %}
-        <h2>{{ prediction_text }}</h2>
-    {% endif %}
+    <div class="container">
+        <h1>🏥 AI-Based Emergency Patient Priority Prediction</h1>
+        <form action="/predict" method="post">
+            <input type="hidden" name="Unnamed: 0" value="0">
+            <label>Age</label><input type="number" name="age" required>
+            <label>Plasma Glucose</label><input type="number" name="plasma glucose" required>
+            <label>Blood Pressure</label><input type="number" name="blood pressure" required>
+            <label>BMI</label><input type="number" step="0.1" name="bmi" required>
+            <label>Skin Thickness</label><input type="number" name="skin_thickness" required>
+            <label>Insulin</label><input type="number" name="insulin" required>
+            <label>Diabetes Pedigree</label><input type="number" step="0.01" name="diabetes_pedigree" required>
+            <label>Cholesterol</label><input type="number" name="cholesterol" required>
+            <label>Max Heart Rate</label><input type="number" name="max heart rate" required>
+            <label>Hypertension (0/1)</label><input type="number" name="hypertension" required>
+            <label>Heart Disease (0/1)</label><input type="number" name="heart_disease" required>
+            <label>Exercise Angina (0/1)</label><input type="number" name="exercise angina" required>
+            <label>Smoking Status (0/1)</label><input type="number" name="smoking_status" required>
+            <label>Gender (0/1)</label><input type="number" name="gender" required>
+            <label>Chest Pain Type</label><input type="number" name="chest pain type" required>
+            <label>Residence Type (0/1)</label><input type="number" name="Residence_type" required>
+            <button type="submit">Predict Triage Priority</button>
+        </form>
+        {% if prediction_text %}
+            <h2>{{ prediction_text }}</h2>
+        {% endif %}
+    </div>
 </body>
 </html>
